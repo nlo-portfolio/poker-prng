@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+  poker-prng:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    entrypoint: ["python3", "poker_prng.py"]
+  poker-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    entrypoint: ["python3", "poker_cli.py"]
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    entrypoint: ["python3", "-m", "unittest", "--verbose"]
